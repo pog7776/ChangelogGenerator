@@ -11,4 +11,4 @@ Only lines of the commit with these tags will be included in the change log
 * [Fixed] : for any bug fixes.
 * [Security] : to invite users to upgrade in case of vulnerabilities.
 
-Once commits have been made run the script and it will generate a README.md
+Once commits have been made run the script and it will generate a CHANGELOG.md
