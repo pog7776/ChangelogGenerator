@@ -1,4 +1,16 @@
 #!/bin/bash
+#==============================================================================
+# title           : changelogGen.sh
+# description     : An automatic changelog generator for git
+# author		  : Jack Cooper (pog7776)
+# date            : 01-04-2020
+# version         : 1.0    
+# usage		      : bash changelogGen.sh
+# notes           : Install git to use this script. Add alias to .bashrc to use anywhere.
+#==============================================================================
+#
+#       ----- Instructions -----
+#
 # In git commit messages use the following tags to categorize your work for the changelog
 # Only lines of the commit with these tags will be included in the change log
 # 
@@ -8,6 +20,7 @@
 # [Removed] : for deprecated features removed in this release.
 # [Fixed] : for any bug fixes.
 # [Security] : to invite users to upgrade in case of vulnerabilities.
+#==============================================================================
 
 CHLG=./CHANGELOG.md
 
