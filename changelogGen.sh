@@ -3,8 +3,8 @@
 # title           : changelogGen.sh
 # description     : An automatic changelog generator for git
 # author		  : Jack Cooper (pog7776)
-# date            : 01-04-2020
-# version         : 1.0    
+# date            : 03-04-2020
+# version         : 1.1    
 # usage		      : bash changelogGen.sh
 # notes           : Install git to use this script. Add alias to .bashrc to use anywhere.
 #==============================================================================
@@ -36,8 +36,8 @@ if [ ! -f "$CHLG" ] || [ $(echo "$CHLG") == "" ]
         SINCE=1901-01-01
     else
         # Find last changelog update
-        SINCE=$(grep -A1 '\[Date\]' $CHLG | grep -v "\[Date\]")
-        echo "Last update: " $SINCE
+        SINCE=$(grep -A1 '\[Date\]' $CHLG | grep -v "\[Date\]" | sed -e 's/\s\+/T/g')
+        echo "Last update: " $(echo $SINCE | sed -e 's/,/ /g')
 fi
 
 # Find additions to changelog with tags
@@ -58,6 +58,12 @@ done
 # Handle if there are new additions to changelog
 if [ $NEW == true ]
     then
+        # Add space if the file is not empty
+        if [ "$(cat $CHLG)" != "" ]
+            then
+                echo "" >> $CHLG
+        fi
+
         # Add date of addition to changelog
         echo "[Date]" >> $CHLG
         echo `date +%F\ %T` >> $CHLG
