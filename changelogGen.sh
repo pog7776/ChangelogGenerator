@@ -36,7 +36,7 @@ if [ ! -f "$CHLG" ] || [ $(echo "$CHLG") == "" ]
         SINCE=1901-01-01
     else
         # Find last changelog update
-        SINCE=$(grep -m1 '\[Date\]' $CHLG | grep -v "\[Date\]" | sed -e 's/\s\+/T/g')
+        SINCE=$(grep -A 1 '\[Date\]' $CHLG | tail -1 | grep -v "\[Date\]" | sed -e 's/\s\+/T/g')
         echo "Last update: " $(echo $SINCE | sed -e 's/,/ /g')
 fi
 

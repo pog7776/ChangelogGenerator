@@ -16,3 +16,8 @@
 *    [Changed] Changed formatting for new entries to change log to include a blank line between new and previous entries.
 ========== [Fixed] ==========
 *    [Fixed] Time since last update was formatted incorrectly for the git --since. Has been fixed.
+
+[Date]
+2020-04-03 10:49:54
+========== [Fixed] ==========
+*    [Fixed] Will now look for the last update rather than ALL the updates
