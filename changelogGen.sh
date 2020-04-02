@@ -4,7 +4,7 @@
 # description     : An automatic changelog generator for git
 # author		  : Jack Cooper (pog7776)
 # date            : 03-04-2020
-# version         : 1.1    
+# version         : 1.1.1
 # usage		      : bash changelogGen.sh
 # notes           : Install git to use this script. Add alias to .bashrc to use anywhere.
 #==============================================================================
@@ -36,7 +36,7 @@ if [ ! -f "$CHLG" ] || [ $(echo "$CHLG") == "" ]
         SINCE=1901-01-01
     else
         # Find last changelog update
-        SINCE=$(grep -A1 '\[Date\]' $CHLG | grep -v "\[Date\]" | sed -e 's/\s\+/T/g')
+        SINCE=$(grep -m1 '\[Date\]' $CHLG | grep -v "\[Date\]" | sed -e 's/\s\+/T/g')
         echo "Last update: " $(echo $SINCE | sed -e 's/,/ /g')
 fi
 
