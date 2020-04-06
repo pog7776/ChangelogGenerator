@@ -33,3 +33,8 @@
 *    [Added] Args support has been added
 *    [Added] Auto push arg has been added, this will automatically commit and push the change log if there are changes to it.
 *    [Added] Added a todo list at the bottom
+
+[Date]
+2020-04-06 16:31:28
+========== [Fixed] ==========
+*    [Fixed] Fixed the if statement checking if CHANGELOG.md had changed.
