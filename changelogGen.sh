@@ -27,6 +27,19 @@ CHLG=./CHANGELOG.md
 declare -a tagNames=(Added Changed Deprecated Removed Fixed Security)
 declare -A TAGS
 
+# Init Args
+AUTO_PUSH=false
+
+# Loop through arguments and process them
+for arg in "$@"
+do
+    case $arg in
+        -p|--push)  # Will automatically commit and push changes to CHANGELOG.md
+        AUTO_PUSH=true
+        ;;
+    esac
+done
+
 # Create CHANGELOG.md if it does not exist or empty
 if [ ! -f "$CHLG" ] || [ $(echo "$CHLG") == "" ]
     then
@@ -87,6 +100,21 @@ if [ $NEW == true ]
 fi
 
 
+# Handle auto push
+if [ $AUTO_PUSH == true ] && [ $(git diff --exit-code CHANGELOG.md) ]
+    then
+        git reset
+        echo "Staging changes to CHANGELOG.md"
+        git add CHANGELOG.md
+        echo "Committing changelog updates."
+        git commit -m "Update Changelog" -m "Updating changelog automatically."
+        echo "Pushing changes to CHANGELOG.md"
+        git push
+    else
+        echo "No changes to CHANGELOG.md to push."
+fi
+
+
 # ========== Old code, kept for reference if anything goes wrong ==========
 
 
@@ -107,3 +135,7 @@ fi
 #         # Add additions to the changelog
 #         echo $ADDED | sed 's/\[Added\]/\n&/g' >> $CHLG
 # fi
+
+# TODO Add ability to generate since last version change instead of last date updated
+# Would have to store version number in changelog or grep through git history
+# TODO Don't need to have the tags infront of the changed under headings... since there are headings
