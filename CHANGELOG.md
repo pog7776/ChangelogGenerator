@@ -26,3 +26,10 @@
 2020-04-05 16:29:16
 ========== [Fixed] ==========
 *    [Fixed] Fixed a bug introduced from the last fix. Will now properly get the last update date and correctly find the date instead of an empty string.
+
+[Date]
+2020-04-06 16:25:44
+========== [Added] ==========
+*    [Added] Args support has been added
+*    [Added] Auto push arg has been added, this will automatically commit and push the change log if there are changes to it.
+*    [Added] Added a todo list at the bottom
