@@ -21,3 +21,8 @@
 2020-04-03 10:49:54
 ========== [Fixed] ==========
 *    [Fixed] Will now look for the last update rather than ALL the updates
+
+[Date]
+2020-04-05 16:29:16
+========== [Fixed] ==========
+*    [Fixed] Fixed a bug introduced from the last fix. Will now properly get the last update date and correctly find the date instead of an empty string.
