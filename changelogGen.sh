@@ -101,7 +101,7 @@ fi
 
 
 # Handle auto push
-if [ $AUTO_PUSH == true ] && [ $(git diff --exit-code CHANGELOG.md) ]
+if [[ $AUTO_PUSH == true && $(git diff --exit-code CHANGELOG.md) ]]
     then
         git reset
         echo "Staging changes to CHANGELOG.md"
