@@ -1,5 +1,5 @@
 # ChangelogGenerator
- An automatic changelog generator for git
+ A really bad automatic changelog generator for git
 
 In git commit messages use the following tags to categorize your work for the changelog </br>
 Only lines of the commit with these tags will be included in the change log
